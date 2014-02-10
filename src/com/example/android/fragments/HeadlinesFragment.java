@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 public class HeadlinesFragment extends ListFragment {
     OnHeadlineSelectedListener mCallback;
-
+    static ArrayAdapter arrayAdapter;
 
     public interface OnHeadlineSelectedListener {
 
@@ -25,8 +25,8 @@ public class HeadlinesFragment extends ListFragment {
         int layout = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ?
                 android.R.layout.simple_list_item_activated_1 : android.R.layout.simple_list_item_1;
 
-
-        setListAdapter(new ArrayAdapter<String>(getActivity(), layout, Handler.Headlines));
+        arrayAdapter = new ArrayAdapter(getActivity(), layout, Handler.Headlines);
+        setListAdapter(arrayAdapter);
     }
 
     @Override

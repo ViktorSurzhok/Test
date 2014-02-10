@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class ArticleFragment extends Fragment {
     final static String ARG_POSITION = "position";
     int mCurrentPosition = -1;
-
+    static Bundle args;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,13 +27,13 @@ public class ArticleFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        Bundle args = getArguments();
+        args = getArguments();
         if (args != null) {
 
             updateArticleView(args.getInt(ARG_POSITION));
         } else if (mCurrentPosition != -1) {
 
-            updateArticleView(mCurrentPosition);
+           updateArticleView(mCurrentPosition);
         }
     }
 
