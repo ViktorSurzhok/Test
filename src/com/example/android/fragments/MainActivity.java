@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity
             case R.id.Refresh:
                 refresh();
                 return true;
-            case android. R.id.home:
+            case android.R.id.home:
                 onBackPressed();
                 return true;
             default:
