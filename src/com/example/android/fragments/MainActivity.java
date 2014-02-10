@@ -1,6 +1,7 @@
 
 package com.example.android.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
@@ -8,8 +9,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -61,10 +64,14 @@ public class MainActivity extends ActionBarActivity
 
     public void refresh() {
         List<String> lst = Arrays.asList(Handler.Headlines);
+        List<String> lst2 = Arrays.asList(Handler.Articles);
         Collections.shuffle(lst);
+        Collections.shuffle(lst2);
         Handler.Headlines = lst.toArray(Handler.Headlines);
+        Handler.Articles = lst2.toArray(Handler.Articles);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Handler.Headlines));
         HeadlinesFragment.arrayAdapter.notifyDataSetChanged();
+
         Toast.makeText(this, "Refresh", Toast.LENGTH_SHORT).show();
     }
 
