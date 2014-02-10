@@ -1,4 +1,3 @@
-
 package com.example.android.fragments;
 
 import android.content.Intent;
@@ -35,6 +34,9 @@ public class MainActivity extends ActionBarActivity
         switch (item.getItemId()) {
             case R.id.Refresh:
                 refresh();
+                return true;
+            case android. R.id.home:
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
